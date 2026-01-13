@@ -13,15 +13,22 @@
         .status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; background: #e8f0fe; color: #1a73e8; font-weight: bold; margin-top: 10px; }
         
         .test-area { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: 0.3s; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #1a73e8; background: #f8f9fa; }
         
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
         button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; width: 100%; transition: 0.3s; }
         button:hover { background-color: #1557b0; }
         button.secondary { background-color: #34a853; margin-top: 10px; }
-        
-        .console-box { margin-top: 30px; background: #202124; color: #f1f1f1; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; height: 150px; overflow-y: auto; }
-        .log-entry { margin-bottom: 5px; border-left: 3px solid #1a73e8; padding-left: 10px; }
     </style>
 
     <script>
@@ -34,8 +41,7 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-PTKFR8S8');</script>
-        <!-- End Google Tag Manager -->
-</head>
+    </head>
 <body>
 
 <div class="container">
@@ -56,37 +62,43 @@
 
         <div class="card">
             <h3>📧 Conversão</h3>
-            <p>Simule o envio de um formulário.</p>
-            <button onclick="sendEvent('generate_lead', 'Newsletter', 0)">Enviar Formulário</button>
+            <p>Insira seu email para simular um lead.</p>
+            <input type="email" id="user-email" placeholder="seu-email@exemplo.com">
+            <button onclick="sendLeadEvent()">Enviar Formulário</button>
         </div>
-    </div>
-
-    <div class="console-box" id="console-log">
-        <div class="log-entry">> Aguardando interações...</div>
     </div>
 </div>
 
 <script>
-    // Função para disparar eventos e logar no console da página
+    // Função genérica para eventos de E-commerce
     function sendEvent(eventName, label, value) {
-        const timestamp = new Date().toLocaleTimeString();
-        
-        // Disparo para o GTM
         window.dataLayer.push({
             'event': eventName,
             'event_label': label,
             'event_value': value,
-            'timestamp': timestamp
+            'timestamp': new Date().toLocaleTimeString()
+        });
+        console.log(`Evento enviado: ${eventName}`);
+    }
+
+    // Função específica para o Lead com Email
+    function sendLeadEvent() {
+        const emailValue = document.getElementById('user-email').value;
+        
+        if(!emailValue) {
+            alert("Por favor, digite um email.");
+            return;
+        }
+
+        window.dataLayer.push({
+            'event': 'generate_lead',
+            'event_label': 'Newsletter',
+            'user_email': emailValue, // Parâmetro com o email digitado
+            'timestamp': new Date().toLocaleTimeString()
         });
 
-        // Log visual no site
-        const consoleLog = document.getElementById('console-log');
-        const entry = document.createElement('div');
-        entry.className = 'log-entry';
-        entry.innerHTML = `<strong>[${timestamp}]</strong> Evento: <em>${eventName}</em> enviado com sucesso!`;
-        consoleLog.prepend(entry);
-        
-        console.log(`GTM Event: ${eventName}`, {label, value});
+        alert("Lead enviado com sucesso! Verifique o console do navegador ou o GTM Debug.");
+        console.log("Lead enviado:", emailValue);
     }
 </script>
 

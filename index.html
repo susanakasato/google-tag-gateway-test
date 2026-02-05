@@ -7,7 +7,7 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/gtm/?id='+i+dl'+i+dl;f.parentNode.insertBefore(j,f);
+    '/gtm/?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PTKFR8S8');</script>
     <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,35 +22,39 @@
     })(window,document,'script','dataLayer','GTM-57PJF6PX');</script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
-        .container { max-width: 800px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .container { max-width: 900px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         header { border-bottom: 2px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
         h1 { color: #1a73e8; margin: 0; }
         .status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; background: #e8f0fe; color: #1a73e8; font-weight: bold; margin-top: 10px; }
         
-        .test-area { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { border-color: #1a73e8; background: #f8f9fa; }
+        .test-area { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 30px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: 0.3s; height: fit-content; }
         
-        input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
+        .product-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .product-info { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        
+        input[type="email"] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
 
-        button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; width: 100%; transition: 0.3s; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; width: 100%; transition: 0.3s; margin-top: 10px; }
         button:hover { background-color: #1557b0; }
-        button.secondary { background-color: #34a853; margin-top: 10px; }
+        button.secondary { background-color: #34a853; }
+        
+        /* Painel do Carrinho Oculto por padrão */
+        #cart-panel { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: #fffef0; 
+            border: 2px dashed #fbbc04; 
+            border-radius: 8px; 
+            display: none; 
+        }
+        .cart-item-list { font-size: 0.85em; color: #555; margin: 10px 0; padding-left: 20px; }
     </style>
 
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
     </script>
-
+</head>
 <body>
 
 <div class="container">
@@ -59,55 +63,127 @@
         <div class="status-badge">Modo de Teste Ativo</div>
     </header>
 
-    <p>Use este ambiente para validar se as requisições estão saindo pelo seu domínio via Cloudflare ou sGTM.</p>
-
     <div class="test-area">
         <div class="card">
-            <h3>🛒 E-commerce</h3>
-            <p>Simule disparos de eventos do GA4.</p>
-            <button onclick="sendEvent('add_to_cart', 'Produto Exemplo', 49.90)">Adicionar ao Carrinho</button>
-            <button class="secondary" onclick="sendEvent('purchase', 'Venda Teste', 150.00)">Simular Compra</button>
+            <h3>🛍️ Vitrine de Teste</h3>
+            
+            <div class="product-item">
+                <label class="product-info">
+                    <input type="checkbox" class="prod-check" data-name="Camiseta Tech" data-price="89.90">
+                    <span>👕 Camiseta Tech - <strong>R$ 89,90</strong></span>
+                </label>
+            </div>
+
+            <div class="product-item">
+                <label class="product-info">
+                    <input type="checkbox" class="prod-check" data-name="Mouse Gamer" data-price="150.00">
+                    <span>🖱️ Mouse Gamer - <strong>R$ 150,00</strong></span>
+                </label>
+            </div>
+
+            <div class="product-item">
+                <label class="product-info">
+                    <input type="checkbox" class="prod-check" data-name="Monitor 4K" data-price="2100.00">
+                    <span>🖥️ Monitor 4K - <strong>R$ 2100,00</strong></span>
+                </label>
+            </div>
+
+            <button onclick="addToCart()">Adicionar ao Carrinho</button>
+
+            <div id="cart-panel">
+                <strong>🛒 Itens no Carrinho:</strong>
+                <ul id="cart-items-display" class="cart-item-list"></ul>
+                <div id="cart-total" style="font-weight: bold; border-top: 1px solid #ddd; padding-top: 5px;"></div>
+                <button class="secondary" onclick="finalizePurchase()">Finalizar Compra (Purchase)</button>
+            </div>
         </div>
 
         <div class="card">
-            <h3>📧 Conversão</h3>
-            <p>Insira seu email para simular um lead.</p>
+            <h3>📧 Conversão de Lead</h3>
+            <p>Simule a captura de dados de contato.</p>
             <input type="email" id="user-email" placeholder="seu-email@exemplo.com">
-            <button onclick="sendLeadEvent()">Enviar Formulário</button>
+            <button onclick="sendLeadEvent()">Enviar Lead</button>
         </div>
     </div>
 </div>
 
 <script>
-    // Função genérica para eventos de E-commerce
-    function sendEvent(eventName, label, value) {
-        window.dataLayer.push({
-            'event': eventName,
-            'event_label': label,
-            'event_value': value,
-            'timestamp': new Date().toLocaleTimeString()
-        });
-        console.log(`Evento enviado: ${eventName}`);
+    let currentCart = [];
+
+    function getSelectedItems() {
+        const checkboxes = document.querySelectorAll('.prod-check:checked');
+        return Array.from(checkboxes).map(cb => ({
+            item_name: cb.getAttribute('data-name'),
+            price: parseFloat(cb.getAttribute('data-price')),
+            quantity: 1
+        }));
     }
 
-    // Função específica para o Lead com Email
-    function sendLeadEvent() {
-        const emailValue = document.getElementById('user-email').value;
+    function addToCart() {
+        const selectedItems = getSelectedItems();
         
-        if(!emailValue) {
-            alert("Por favor, digite um email.");
+        if(selectedItems.length === 0) {
+            alert("Selecione pelo menos um item da vitrine!");
             return;
         }
 
+        currentCart = selectedItems;
+        const totalValue = currentCart.reduce((acc, item) => acc + item.price, 0);
+
+        // 1. Dispara evento GA4
         window.dataLayer.push({
-            'event': 'generate_lead',
-            'event_label': 'Newsletter',
-            'user_email': emailValue, // Parâmetro com o email digitado
-            'timestamp': new Date().toLocaleTimeString()
+            'event': 'add_to_cart',
+            'ecommerce': {
+                'value': totalValue,
+                'currency': 'BRL',
+                'items': currentCart
+            }
         });
 
-        alert("Lead enviado com sucesso! Verifique o console do navegador ou o GTM Debug.");
-        console.log("Lead enviado:", emailValue);
+        // 2. Mostra e atualiza o painel visual
+        const panel = document.getElementById('cart-panel');
+        const listDisplay = document.getElementById('cart-items-display');
+        const totalDisplay = document.getElementById('cart-total');
+
+        panel.style.display = 'block';
+        listDisplay.innerHTML = currentCart.map(i => `<li>${i.item_name} (R$ ${i.price.toFixed(2)})</li>`).join('');
+        totalDisplay.innerText = `Total: R$ ${totalValue.toFixed(2)}`;
+
+        console.log("Evento add_to_cart enviado!", currentCart);
+    }
+
+    function finalizePurchase() {
+        if(currentCart.length === 0) return;
+
+        const totalValue = currentCart.reduce((acc, item) => acc + item.price, 0);
+
+        window.dataLayer.push({
+            'event': 'purchase',
+            'ecommerce': {
+                'transaction_id': 'T_' + Math.floor(Math.random() * 100000),
+                'value': totalValue,
+                'currency': 'BRL',
+                'items': currentCart
+            }
+        });
+
+        alert("Compra realizada com sucesso! Verifique o GTM.");
+        
+        // Reseta tudo após a compra
+        currentCart = [];
+        document.getElementById('cart-panel').style.display = 'none';
+        document.querySelectorAll('.prod-check').forEach(cb => cb.checked = false);
+    }
+
+    function sendLeadEvent() {
+        const email = document.getElementById('user-email').value;
+        if(!email) { alert("Digite um email."); return; }
+
+        window.dataLayer.push({
+            'event': 'generate_lead',
+            'user_email': email
+        });
+        alert("Lead enviado!");
     }
 </script>
 

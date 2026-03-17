@@ -199,6 +199,14 @@
             'event': 'generate_lead',
             'user_email': email
         });
+
+        gatg('set'. 'user_data', {
+            "email": email
+        })
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17888745913/lead'
+        });
+        
         alert("Lead enviado!");
     }
 </script>

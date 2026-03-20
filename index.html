@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratório Google Tag Gateway</title>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     '/gtm1/?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -13,20 +13,25 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     '/gtm2/?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','');</script> 
+    })(window,document,'script','dataLayer','');</script>  -->
+    
     <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PTKFR8S8');</script>  -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17888745913"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17888745913"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-72KP4HP7VK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'AW-702679760');
-    </script> -->
+      gtag('config', 'G-72KP4HP7VK');
+    </script>
+    
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
         .container { max-width: 900px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -203,15 +208,18 @@
         });
 
         
-        // alert("Lead enviado!");
-        // gtag('set', 'user_data', {
-        //     "sha256_email_address": '8ff54eeab415dc1a98c472d605195268015352a8b462ab174fe2525b1460e9d6'
-        // });
-        // gtag('event', 'conversion', {
-        //     'send_to': 'AW-17888745913/0SW0CMvKwoocELmzgtJC',
-        //     'value': 1.0,
-        //     'currency': 'BRL'
-        // });
+        alert("Lead enviado!");
+        gtag('set', 'user_data', {
+            "sha256_email_address": '8ff54eeab415dc1a98c472d605195268015352a8b462ab174fe2525b1460e9d6'
+        });
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17888745913/0SW0CMvKwoocELmzgtJC',
+            'value': 1.0,
+            'currency': 'BRL'
+        });
+        gtag('event', 'generate_lead', {
+            'custom_method': 'gtag'
+        });
 
 
     }

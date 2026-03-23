@@ -186,9 +186,9 @@
         document.getElementById('cart-panel').style.display = 'none';
         document.querySelectorAll('.prod-check').forEach(cb => cb.checked = false);
 
-        gtag('set', 'user_data', {
-            "email": "maria@gmail.com"
-        });
+        // gtag('set', 'user_data', {
+        //     "email": "maria@gmail.com"
+        // });
         // gtag('event', 'conversion', {
         //     'send_to': 'AW-17888745913/wvpaCNmI0LsBENCViM8C',
         //     'value': totalValue,
@@ -211,16 +211,16 @@
         
         alert("Lead enviado!");
         gtag('set', 'user_data', {
-            "sha256_email_address": '8ff54eeab415dc1a98c472d605195268015352a8b462ab174fe2525b1460e9d6'
+            "email": email
         });
-        gtag('event', 'conversion', {
-            'send_to': 'AW-17888745913/0SW0CMvKwoocELmzgtJC',
-            'value': 1.0,
-            'currency': 'BRL'
-        });
-        gtag('event', 'generate_lead', {
-            'custom_method': 'gtag'
-        });
+        // gtag('event', 'conversion', {
+        //     'send_to': 'AW-17888745913/0SW0CMvKwoocELmzgtJC',
+        //     'value': 1.0,
+        //     'currency': 'BRL'
+        // });
+        // gtag('event', 'generate_lead', {
+        //     'custom_method': 'gtag'
+        // });
 
 
     }

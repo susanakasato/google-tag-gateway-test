@@ -200,6 +200,12 @@
         const email = document.getElementById('user-email').value;
         if(!email) { alert("Digite um email."); return; }
 
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
         window.dataLayer.push({
             'event': 'generate_lead',
             'user_email': email

@@ -1,261 +1,147 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratório Google Tag Gateway</title>
-
-    <!-- Google Tag Manager -->
-    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/ss-metrics/ptkfr8s8/';f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','');</script> -->
-    <!-- End Google Tag Manager -->
-    
-    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/cs-metrics/?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','');</script> -->
-    
-    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/gtm2/?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','');</script>  -->
-    
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PTKFR8S8');</script> 
-
-    <!-- <script>(function(w,d,s,l){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'?l='+l:'';j.async=true;j.src=
-    'https://mystitchr.com/ss-metrics/ptkfr8s8/'+dl;f.parentNode.insertBefore(j,f);})
-    (window,document,'script','dataLayer');</script> 
-
-    <script>(function(w,d,s,l){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'?l='+l:'';j.async=true;j.src=
-    'https://mystitchr.com/ss-metrics/57pjf6px/'+dl;f.parentNode.insertBefore(j,f);})
-    (window,document,'script','dataLayer');</script>  -->
-
-    <!-- <script async src="/gtag/"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-RLB33TBSFX', {
-          'server_container_url': 'https://teste.com'
-      });
-    </script> -->
-    
-    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/ss-metrics/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PTKFR8S8');</script>  -->
-    
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17888745913"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-72KP4HP7VK"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'AW-702679760');
-      gtag('config', 'G-72KP4HP7VK');
-    </script> -->
+    <title>Teste do Google Tag Gateway</title>
+    <!-- Importando uma fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        header { border-bottom: 2px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
-        h1 { color: #1a73e8; margin: 0; }
-        .status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; background: #e8f0fe; color: #1a73e8; font-weight: bold; margin-top: 10px; }
-        
-        .test-area { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 30px; }
-        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: 0.3s; height: fit-content; }
-        
-        .product-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
-        .product-info { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        
-        input[type="email"] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-
-        button { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; width: 100%; transition: 0.3s; margin-top: 10px; }
-        button:hover { background-color: #1557b0; }
-        button.secondary { background-color: #34a853; }
-        
-        /* Painel do Carrinho Oculto por padrão */
-        #cart-panel { 
-            margin-top: 20px; 
-            padding: 15px; 
-            background: #fffef0; 
-            border: 2px dashed #fbbc04; 
-            border-radius: 8px; 
-            display: none; 
+        /* Estilos base */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
         }
-        .cart-item-list { font-size: 0.85em; color: #555; margin: 10px 0; padding-left: 20px; }
-    </style>
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
-    </script>
+        /* Container do Card */
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .card h1 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Botão Moderno */
+        .btn-teste {
+            background-color: #6366f1;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            width: 100%;
+        }
+
+        .btn-teste:hover {
+            background-color: #4f46e5;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-teste:active {
+            transform: translateY(0);
+        }
+
+        /* Console visual do dataLayer */
+        .console-output {
+            margin-top: 25px;
+            background-color: #1e293b;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            text-align: left;
+            overflow-x: auto;
+            display: none; /* Escondido até o primeiro clique */
+        }
+
+        .console-output span.label {
+            color: #94a3b8;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Tag Gateway Lab 🧪</h1>
-        <div class="status-badge">Modo de Teste Ativo</div>
-    </header>
+    <div class="card">
+        <h1>Teste GTG / GTM</h1>
+        <p>Clique no botão abaixo para simular uma ação de usuário e disparar um evento customizado direto no <strong>dataLayer</strong>.</p>
+        
+        <button id="btnDisparar" class="btn-teste">Disparar Evento Teste</button>
 
-    <div class="test-area">
-        <div class="card">
-            <h3>🛍️ Vitrine de Teste</h3>
-            
-            <div class="product-item">
-                <label class="product-info">
-                    <input type="checkbox" class="prod-check" data-name="Camiseta Tech" data-price="89.90">
-                    <span>👕 Camiseta Tech - <strong>R$ 89,90</strong></span>
-                </label>
-            </div>
-
-            <div class="product-item">
-                <label class="product-info">
-                    <input type="checkbox" class="prod-check" data-name="Mouse Gamer" data-price="150.00">
-                    <span>🖱️ Mouse Gamer - <strong>R$ 150,00</strong></span>
-                </label>
-            </div>
-
-            <div class="product-item">
-                <label class="product-info">
-                    <input type="checkbox" class="prod-check" data-name="Monitor 4K" data-price="2100.00">
-                    <span>🖥️ Monitor 4K - <strong>R$ 2100,00</strong></span>
-                </label>
-            </div>
-
-            <button onclick="addToCart()">Adicionar ao Carrinho</button>
-
-            <div id="cart-panel">
-                <strong>🛒 Itens no Carrinho:</strong>
-                <ul id="cart-items-display" class="cart-item-list"></ul>
-                <div id="cart-total" style="font-weight: bold; border-top: 1px solid #ddd; padding-top: 5px;"></div>
-                <button class="secondary" onclick="finalizePurchase()">Finalizar Compra (Purchase)</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>📧 Conversão de Lead</h3>
-            <p>Simule a captura de dados de contato.</p>
-            <input type="email" id="user-email" placeholder="seu-email@exemplo.com">
-            <button onclick="sendLeadEvent()">Enviar Lead</button>
+        <!-- Área para mostrar o que foi para o dataLayer -->
+        <div id="consoleLog" class="console-output">
+            <span class="label">Último evento no dataLayer:</span>
+            <pre id="jsonOutput" style="margin: 0;"></pre>
         </div>
     </div>
-</div>
 
-<script>
-    let currentCart = [];
+    <!-- Script de inicialização e disparo -->
+    <script>
+        // 1. Inicializa o dataLayer caso ele ainda não exista
+        window.dataLayer = window.dataLayer || [];
 
-    function getSelectedItems() {
-        const checkboxes = document.querySelectorAll('.prod-check:checked');
-        return Array.from(checkboxes).map(cb => ({
-            item_name: cb.getAttribute('data-name'),
-            price: parseFloat(cb.getAttribute('data-price')),
-            quantity: 1
-        }));
-    }
+        // 2. Seleciona os elementos da tela
+        const botao = document.getElementById('btnDisparar');
+        const consoleLog = document.getElementById('consoleLog');
+        const jsonOutput = document.getElementById('jsonOutput');
 
-    function addToCart() {
-        const selectedItems = getSelectedItems();
-        
-        if(selectedItems.length === 0) {
-            alert("Selecione pelo menos um item da vitrine!");
-            return;
-        }
+        // 3. Adiciona a ação de clique no botão
+        botao.addEventListener('click', function(e) {
+            e.preventDefault(); // Evita qualquer comportamento padrão do botão
 
-        currentCart = selectedItems;
-        const totalValue = currentCart.reduce((acc, item) => acc + item.price, 0);
+            // Cria o objeto do evento
+            const eventoDatalayer = {
+                'event': 'gtg_test_click',
+                'button_name': 'disparar_evento_teste',
+                'page_type': 'ambiente_de_teste',
+                'timestamp': new Date().toISOString()
+            };
 
-        // 1. Dispara evento GA4
-        window.dataLayer.push({
-            'event': 'add_to_cart',
-            'ecommerce': {
-                'value': totalValue,
-                'currency': 'BRL',
-                'items': currentCart
-            }
+            // Dispara o evento para o dataLayer
+            window.dataLayer.push(eventoDatalayer);
+
+            // ---- Código apenas para feedback visual na tela ----
+            consoleLog.style.display = 'block';
+            
+            // Pega o último item inserido no dataLayer e mostra na tela formatado
+            const ultimoEvento = window.dataLayer[window.dataLayer.length - 1];
+            jsonOutput.textContent = JSON.stringify(ultimoEvento, null, 2);
+            
+            // Também exibe no console nativo do navegador para conferência
+            console.log("Evento enviado para o dataLayer:", ultimoEvento);
         });
-
-        // 2. Mostra e atualiza o painel visual
-        const panel = document.getElementById('cart-panel');
-        const listDisplay = document.getElementById('cart-items-display');
-        const totalDisplay = document.getElementById('cart-total');
-
-        panel.style.display = 'block';
-        listDisplay.innerHTML = currentCart.map(i => `<li>${i.item_name} (R$ ${i.price.toFixed(2)})</li>`).join('');
-        totalDisplay.innerText = `Total: R$ ${totalValue.toFixed(2)}`;
-
-        console.log("Evento add_to_cart enviado!", currentCart);
-    }
-
-    function finalizePurchase() {
-        if(currentCart.length === 0) return;
-
-        const totalValue = currentCart.reduce((acc, item) => acc + item.price, 0);
-
-        window.dataLayer.push({
-            'event': 'purchase',
-            'ecommerce': {
-                'transaction_id': 'T_' + Math.floor(Math.random() * 100000),
-                'value': totalValue,
-                'currency': 'BRL',
-                'items': currentCart
-            }
-        });
-
-        alert("Compra realizada com sucesso! Verifique o GTM.");
-        
-        // Reseta tudo após a compra
-        currentCart = [];
-        document.getElementById('cart-panel').style.display = 'none';
-        document.querySelectorAll('.prod-check').forEach(cb => cb.checked = false);
-    
-        // gtag('event', 'conversion', {
-        //     'send_to': 'AW-17888745913/wvpaCNmI0LsBENCViM8C',
-        //     'value': totalValue,
-        //     'currency': 'BRL',
-        //     'transaction_id': ''
-        // });
-    }
-
-    function sendLeadEvent() {
-        const email = document.getElementById('user-email').value;
-        if(!email) { alert("Digite um email."); return; }
-
-        window.dataLayer.push({
-            'event': 'generate_lead',
-            'user_email': email
-        });
-        
-        // gtag('event', 'conversion', {
-        //     'send_to': 'AW-17888745913/0SW0CMvKwoocELmzgtJC',
-        //     'value': 1.0,
-        //     'currency': 'BRL'
-        // });
-        // gtag('set', 'user_data', {
-        //     'email': email
-        // })
-        // gtag('event', 'generate_lead', {
-        //     'send_to': 'G-72KP4HP7VK',
-        //     'custom_method': 'gtag'
-        // });
-    }
-</script>
-
+    </script>
 </body>
 </html>
